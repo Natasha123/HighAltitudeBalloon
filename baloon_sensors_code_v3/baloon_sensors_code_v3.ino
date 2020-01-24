@@ -109,16 +109,6 @@ void loop()
   uint8_t sensorId;
   
   // Read values from sensors
-
-  // Get pressure sensor values
-  float altitudeAdjustmentFactor = 0.3048;
-  float pressureAdjustmentAmount = 100940;
-  float celciusToKelvinAdjustmentAmount = 273.15;
-  
-  float altitude = pressureSensor.readAltitudeFt()* altitudeAdjustmentFactor;
-  float pressure = pressureSensor.readPressure() + pressureAdjustmentAmount;
-  float pressureSensorTemperature = pressureSensor.readTemp() + celciusToKelvinAdjustmentAmount;
-  
   getPressureSensorData();
   getWeatherSensorData();
   getImuSensorData();
