@@ -67,6 +67,9 @@ void setup()
   String titleRow = "MillisecondsSinceBoardStarted,Altitude,Pressure,pressureSensorTemperature,weatherSensorTemperature,Humidity,gX,gY,gZ,aX,aY,aZ,mX,mY,mZ"; 
   fd.println(titleRow);
   fd.close();
+  
+  // Initialize LED digital pin LED_BUILTIN as an output
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void getPressureSensorData()
@@ -125,7 +128,13 @@ void loop()
   
   fd.println(csvRow);
 
+  // LED on, to assist visual testing of board
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  
   delay(100);
   fd.close();
   delay(100);
+
+  // LED off
+  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
 }
