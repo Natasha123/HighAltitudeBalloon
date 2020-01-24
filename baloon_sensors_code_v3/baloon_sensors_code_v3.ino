@@ -64,7 +64,7 @@ void setup()
   // Write csv title row to SD card
   File fd = SD.open(filename, FILE_WRITE);
 
-  String titleRow = "Altitude,Pressure,pressureSensorTemperature,weatherSensorTemperature,Humidity,gX,gY,gZ,aX,aY,aZ,mX,mY,mZ"; 
+  String titleRow = "MillisecondsSinceBoardStarted,Altitude,Pressure,pressureSensorTemperature,weatherSensorTemperature,Humidity,gX,gY,gZ,aX,aY,aZ,mX,mY,mZ"; 
   fd.println(titleRow);
   fd.close();
 }
@@ -116,6 +116,7 @@ void loop()
   
   // Write sensor readings as csv row
   String csvRow = "";
+  csvRow += String(millis()) + ",";
   csvRow += String(altitude) + "," + String(pressure) + ",";
   csvRow += String(pressureSensorTemperature) + "," + String(weatherTemperature) + "," + String(weatherSensorHumidity) + ",";
   csvRow += String(gX) + "," + String(gY) + "," + String(gZ) + ",";
