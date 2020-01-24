@@ -55,7 +55,7 @@ void setup()
   imuSensor.beginGyro();
   imuSensor.beginMag();
 
-  // Configure the sensors
+  // Configure sensors
   int sampleRateCode = 7;  // Set Oversample to the recommended 128
   pressureSensor.setModeAltimeter(); // Measure altitude above sea level in meters
   pressureSensor.setOversampleRate(sampleRateCode); // Set Oversample to the recommended 128
@@ -125,7 +125,7 @@ void loop()
   
   fd.println(csvRow);
 
-  delay(250);
+  delay(100);
   fd.close();
-  delay(250);
+  delay(100);
 }
