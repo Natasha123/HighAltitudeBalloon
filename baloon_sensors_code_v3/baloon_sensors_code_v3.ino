@@ -25,7 +25,6 @@ float aX, aY, aZ, gX, gY, gZ, mX, mY, mZ;
 
 // Pressure sensor constants and variables
 const float altitudeAdjustmentFactor = 0.3048;
-const float pressureAdjustmentAmount = 100940;
 float altitude, pressure, pressureSensorTemperature;
 
 String filename = "datalog4.csv";
@@ -73,7 +72,7 @@ void setup()
 void getPressureSensorData()
 {
   altitude = pressureSensor.readAltitudeFt()* altitudeAdjustmentFactor;
-  pressure = pressureSensor.readPressure() + pressureAdjustmentAmount;
+  pressure = pressureSensor.readPressure();
   pressureSensorTemperature = pressureSensor.readTemp() + celciusToKelvinAdjustmentAmount;
 }
 
